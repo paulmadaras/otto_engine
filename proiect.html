@@ -1,0 +1,526 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Motorul Otto</title>
+<style>
+html
+{
+	scroll-behavior: smooth;
+}
+body{
+	background-color:#feffd3;
+	margin:0.5%;
+}
+.nav {
+	background-color:white;
+	position:fixed;
+	list-style-type: none;
+	margin:0.5%;
+	padding: 0;
+	overflow: hidden;	
+	z-index:1;
+	opacity:0.7;
+}
+
+.navli {
+  float: left;
+}
+
+.nava {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nava:hover {
+  background-color: #f3f3f3;
+}
+.back
+{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0;
+	text-align:center;
+}
+.titlu{
+	color:white;
+	opacity:0.7;
+	position:absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size:100px;
+	text-shadow: 2px 2px 4px #000000;
+}
+.scris
+{
+	font-family: "Times New Roman", Times, serif;
+	margin:5%;
+	font-size:25px;
+	text-align:justify;
+	
+}
+.scris2
+{
+	word-break: break-word;
+	font-family: "Times New Roman", Times, serif;
+	margin-left:5%;
+	margin-right:5%;
+	margin-bottom:2%;
+	margin-top:0%;
+	font-size:25px;
+	text-align:justify;
+	
+}
+.prima
+{
+	margin:0;
+	 word-wrap: break-word;
+}
+* {
+  box-sizing: border-box;
+}
+
+.row > .column {
+  padding: 0 8px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* The Modal (background) */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: black;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 50%;
+  max-width: 1200px;
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mySlides {
+  display: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+img {
+  margin-bottom: -4px;
+}
+
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 2px 16px;
+  color: white;
+}
+
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#pers{
+	border-radius: 50%;
+	height:25%;
+	width:25%;
+	margin-left: 2.5%;
+	margin-right: 2.5;
+	float:left;
+}
+#pers2{
+	border-radius: 50%;
+	height:24%;
+	width:24%;
+	display:block;
+	margin-right:auto;
+	margin-left:auto;
+	margin-top:10%;
+}
+#pers3{
+	border-radius: 50%;
+	height:25%;
+	width:25%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	float:right;
+}
+#duvi{
+	float:left;
+	margin-left:5%;
+	margin-right:10%;
+}
+.column{
+	width:10%;
+	float:left;
+}
+</style>
+</head>
+<body>
+<ul class="nav">
+  <li class="navli"><a href="#prima" class="nava">Inventatorul</a></li>
+  <li class="navli"><a href="#doua" class="nava">Morotul</a></li>
+  <li class="navli"><a href="#treia" class="nava">Diferențe</a></li>
+  <li class="navli"><a href="#patra" class="nava">Timpii</a></li>
+  <li class="navli" onclick="openModal();currentSlide(1)"><a class="nava">Galerie</a></li>
+  <li class="navli"><a href="#cincea" class="nava">Animație</a></li>
+</ul>
+<div class="back">
+<img src="./imagini/engine.jpg">
+<p class="titlu">Motorul Otto</p></div>
+<div class="prima" id="prima">
+<div class="row">
+  <div>
+    <img src="./imagini/nuiu.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow cursor" id="pers">
+  </div>
+  <div>
+    <img src="./imagini/timbra.jpg" onclick="openModal();currentSlide(2)" class="hover-shadow cursor" id="pers3">
+  </div>
+  <div>
+    <img src="./imagini/iuba.jpg" onclick="openModal();currentSlide(3)" class="hover-shadow cursor" id="pers2">
+  </div>
+</div>
+
+<div id="myModal" class="modal">
+  <span class="close cursor" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+
+    <div class="mySlides">
+      <div class="numbertext">1 / 13</div>
+      <img src="./imagini/nuiu.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">2 / 13</div>
+      <img src="./imagini/iuba.jpg" style="width:100%">
+    </div>  
+	
+    <div class="mySlides">
+      <div class="numbertext">3 / 13</div>
+      <img src="./imagini/timbra.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">4 / 13</div>
+      <img src="./imagini/ciclu.png" style="width:100%">
+    </div>
+	<div class="mySlides">
+      <div class="numbertext">5 / 13</div>
+      <img src="./imagini/ind3.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">6 / 13</div>
+      <img src="./imagini/abs.jpg" style="width:50%">
+	  <img src="./imagini/comps.jpg" style="width:50%; float:right;">
+    </div>
+
+	<div class="mySlides">
+      <div class="numbertext">7 / 13</div>
+      <img src="./imagini/aprind.jpg" style="width:50%">
+	  <img src="./imagini/evac.jpg" style="width:50%; float:right;">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">8 / 13</div>
+      <img src="./imagini/ot.gif" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">9 / 13</div>
+      <img src="./imagini/ind1.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">10 / 13</div>
+      <img src="./imagini/ind.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">11 / 13</div>
+      <img src="./imagini/ind2.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">12 / 13</div>
+      <img src="./imagini/ind4.jpg" style="width:100%">
+    </div>
+	
+	<div class="mySlides">
+      <div class="numbertext">13 / 13</div>
+      <img src="./imagini/ind3.png" style="width:100%">
+    </div>
+	
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+
+	<div class="column">
+      <img class="demo cursor" src="./imagini/nuiu.jpg" style="width:100%; margin:0; padding:0;" onclick="currentSlide(1)" alt="Nikolaus Otto">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./imagini/iuba.jpg" style="width:100%; margin:0;" onclick="currentSlide(2)" alt="Nikolaus Otto">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="./imagini/timbra.jpg" style="width:100%" onclick="currentSlide(3)" alt="Nikolaus Otto">
+    </div>
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ciclu.png" style="width:100%" onclick="currentSlide(4)" alt="Schema de funcționare">
+    </div>
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ind3.jpg" style="width:100%" onclick="currentSlide(5)" alt="Schema de funcționare">
+    </div>
+	<div class="column">
+	<div>
+      <img class="demo cursor" src="./imagini/abs.jpg" style="width:50%" onclick="currentSlide(6)" alt="Absorbţia și compresia">
+	  <img class="demo cursor" src="./imagini/comps.jpg" style="width:50%; float:right;" onclick="currentSlide(6)" alt="Aprinderea și evacuarea">
+	</div>
+    </div>
+	<div class="column">
+      <img class="demo cursor" src="./imagini/aprind.jpg" style="width:50%" onclick="currentSlide(7)" alt="Animație">
+	  <img class="demo cursor" src="./imagini/evac.jpg" style="width:50%; float:right;" onclick="currentSlide(7)" alt="Motorul">
+    </div>
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ot.gif" style="width:100%" onclick="currentSlide(8)" alt="Motor">
+    </div>
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ind1.jpg" style="width:100%" onclick="currentSlide(9)" alt="Secțiunea motorului">
+    </div>
+	
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ind.jpg" style="width:100%" onclick="currentSlide(10)">
+    </div>
+	
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ind2.jpg" style="width:100%" onclick="currentSlide(11)" alt="Motorul Benz">
+    </div>
+	
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ind4.jpg" style="width:100%" onclick="currentSlide(12)">
+    </div>
+	
+	<div class="column">
+      <img class="demo cursor" src="./imagini/ind3.png" style="width:100%" onclick="currentSlide(13)">
+    </div>
+	
+  </div>
+</div>
+
+<script>
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+<p class="scris"><b>Nikolaus August Otto</b> a fost un inventator german, născut în Ducatul Nassau. A locuit în Franța unde s-a interesat de mașinile cu gaz ale inginerului francez Etienne Lenoir.
+Otto a fost inventatorul primului motor cu combustie internă care ardea în mod eficient combustibilul direct într-o cameră cilindrică cu piston mobil, mișcarea efectuându-se de-a lungul generatoarei cilindrului. Deși fuseseră inventate și alte motoare cu combustie internă (de exemplu, de către Etienne Lenoir), acestea nu s-au bazat pe patru timpi separați. Conceptul de patru timpi este posibil să fi fost deja discutat la data invenției lui Otto, dar el a fost primul care l-a pus înpractică.
+</p>
+</div>
+<div id="doua">
+<p class="scris2"><b>Motorul în patru timpi</b> este un tip de motor cu ardere internă al cărui piston face 4 curse simple într-un ciclu motor. Pistonul se mișcă într-un cilindru închis la un capăt de chiulasă. Mișcarea pistonului este asigurată de un mecanism bielă-arbore cotit și are loc între două poziții extreme: punctul mort interior și punctul mort exterior.În punctul mort interior <b>PMI</b>, pistonul este în interiorul cilindrului și volumul acestuia este minim.La punctul mort exterior PME, pistonul se găsește la cealaltă extremitate în raport cu PMI și volumul acestuia este maxim.Un ciclu motor are loc de-a lungul a două rotații ale arborelui cotit și cuprinde patru faze, numerotate în figura alăturată cu:</p>
+<div class="row">
+  <div>
+    <img src="./imagini/ciclu.png" onclick="openModal();currentSlide(4)" class="hover-shadow cursor" id="duvi">
+  </div>
+<ol>
+	<li class="scris2">Admisia</li>
+	<li class="scris2">Compresia</li>
+	<li class="scris2">Arderea si Destinderea</li>
+	<li class="scris2">Evacuarea</li>
+</ol>
+<p class="scris2">Graficul alăturat, prezintă schema de funcţionare a motorului Otto, în coordonatele presiune (P) şi volum (V).</p>
+   <ul class="scris2"><li>Timpul 1- Aspiraţia;
+A›1 aspiraţie izobară (P1=constant= presiunea atmosferică)</li>
+   <li>Timpul 2- Compresia;
+1›2 compresie adiabatică a amestecului</li>
+   <li>Timpul 3- Aprinderea;
+2›3 aprindere izocoră (V2=constant);<br>
+3›4 detentă adiabatică;<br>
+4›1 destinderea izocoră (se destinde gazul prin deschiderea supapei de evacuare, pistonul fiind la punctul mort inferior, V1=constant);</li>
+   <li>Timpul 4- Evacuarea; 
+1›A evacuare izobară (gazul este eliminat prin supapa de evacuare cu ajutorul pistonului la P1=constant= presiunea atmosferică)</li></ul></div><div id="treia">
+<h2 class="scris">Diferenţele dintre motoarele Diesel şi Otto</h2>
+<ul class="scris2">
+<li>Motorul Otto aspiră un amestec de benzină şi aer, îl comprimă şi îl aprinde cu o scânteie electrică.
+Motorul Diesel aspiră aer, îl comprimă şi apoi este injectată motorina care se aprinde.
+</li>
+<li>Motorul Otto foloseşte o rată de compresie ce variază între 8:1 şi 12:1.
+Motorul Diesel foloseşte o rată de compresie mult mai mare şi anume 14:1 până la 25:1.
+</li>
+<li>Motorul Otto foloseşte un carburator unde este amestecată benzina cu aerul, sau o pompă de injecţie (carburantul nu este injectat direct în cilindru).
+Motorul Diesel foloseşte injecţie directă, în care combustibilul este injectat direct în cilindru.
+</li>
+</ul>
+</div><div id="patra">
+<h2 class="scris">Timpii de funcţionare</h2>
+<p class="scris2"><b>Timpul 1- Absorbţia</b></p>
+<div class="row">
+  <div>
+    <img src="./imagini/abs.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow cursor" id="duvi">
+  </div>
+<p class="scris2">În timpul 1 se deschide supapa de admisie, iar în timp ce pistonul se deplasează înspre punctul mort inferior, în cilindru este absorbit amestecul de vapori de benzină şi aer (realizat în carburator) datorită depresiunii formate.</p>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p class="scris2"><b>Timpul 2- Compresia</b></p>
+<div class="row">
+  <div>
+    <img src="./imagini/comps.jpg" onclick="openModal();currentSlide(6)" class="hover-shadow cursor" id="duvi">
+  </div>
+<p class="scris2">După ce pistonul a ajuns în punctul mort inferior, supapa de admisie se închide. Supapa de evacuare este şi ea închisă. În deplasarea pistonului înspre punctul mort superior, acesta comprimă amestecul din cilindru până la o rată de 9:1.</p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p class="scris2"><b>Timpul 3- Aprinderea</b></p>
+<div class="row">
+  <div>
+    <img src="./imagini/aprind.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow cursor" id="duvi">
+  </div>
+<p class="scris2">La sfârşitul compresiei, când pistonul a ajuns la punctul mort superior şi ambele supape sunt închise, se produce o scânteie electrică între electrozii bujiei. Scânteia aprinde amestecul carburant care începe să ardă progresiv. Temperatura rezultată este de circa 2000°C şi presiunea de aproximativ 25 atm. Gazele produc o forţă mare de apăsare asupra pistonului împingâdu-l spre punctul mort inferior. Pe măsură ce pistonul coboară, gazele se destind și are loc detenta. Acum este singurul moment când se produce lucru mecanic.</p>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p class="scris2"><b>Timpul 4- Evacuarea</b></p>
+<div class="row">
+  <div>
+    <img src="./imagini/evac.jpg" onclick="openModal();currentSlide(7)" class="hover-shadow cursor" id="duvi">
+  </div>
+<p class="scris2">Supapa de admisie este închisă, iar cea de evacuare este deschisă, permiţând gazelor arse din cilindru să fie împinse afară din cilindru de pistonul care se deplasează de la punctul mort inferior spre punctul mort superior.</p></div>
+<br><br><br><br>
+</div>
+<div id="cincea">
+<p class="scris2"><b>Animație</b></p>
+<img src="./imagini/ot.gif" onclick="openModal();currentSlide(8)" class="hover-shadow cursor" id="duvi">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+<p class="scris2">Bibliografie</p>
+<ul class="scris2">
+<li>https://l.messenger.com/l.php?u=https%3A%2F%2Fmotoarewordpresscom.wordpress.com%2F&h=AT0jgFpISEvYWHDR89_0ddFzF0CidbevN6gc85qmgVgUzk8Xpg5qwvg6KbVZuHHEnJAinsNw43ufU866aPGHCCtpzvF8mRtb3wONeWZ9yoaIM3Q987ykH6oiaoR0FNN1e3ml</li>
+<li>https://l.messenger.com/l.php?u=http%3A%2F%2Fbogdan.s.tripod.com%2FReferate%2FFizica%2FMotorul_Otto%2FOtto.htm&h=AT0jgFpISEvYWHDR89_0ddFzF0CidbevN6gc85qmgVgUzk8Xpg5qwvg6KbVZuHHEnJAinsNw43ufU866aPGHCCtpzvF8mRtb3wONeWZ9yoaIM3Q987ykH6oiaoR0FNN1e3ml</li>
+<li>https://l.messenger.com/l.php?u=https%3A%2F%2Fweb.mit.edu%2F16.unified%2Fwww%2FFALL%2Fthermodynamics%2Fnotes%2Fnode26.html&h=AT0jgFpISEvYWHDR89_0ddFzF0CidbevN6gc85qmgVgUzk8Xpg5qwvg6KbVZuHHEnJAinsNw43ufU866aPGHCCtpzvF8mRtb3wONeWZ9yoaIM3Q987ykH6oiaoR0FNN1e3ml</li>
+<li>https://l.messenger.com/l.php?u=http%3A%2F%2Fwww.slideserve.com%2F&h=AT0jgFpISEvYWHDR89_0ddFzF0CidbevN6gc85qmgVgUzk8Xpg5qwvg6KbVZuHHEnJAinsNw43ufU866aPGHCCtpzvF8mRtb3wONeWZ9yoaIM3Q987ykH6oiaoR0FNN1e3ml</li>
+<li>bogdan.s.tripod.com</li>
+<li>motoarewordpresscom.wordpress.com</li>
+<li>nccmn.fandom.com</li>
+<li>spazio.alqumm.com</li>
+<li>donimihai.blogspot.com</li>
+
+</ul>
+</body>
+</html>
